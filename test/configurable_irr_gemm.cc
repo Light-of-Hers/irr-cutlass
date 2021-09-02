@@ -16,20 +16,20 @@
 
 #include "common.h"
 
-using LR = cutlass::layout::RowMajor;
-using LC = cutlass::layout::ColumnMajor;
+using Row = cutlass::layout::RowMajor;
+using Col = cutlass::layout::ColumnMajor;
 
 #ifndef ELEMENT
 #define ELEMENT float
 #endif
 #ifndef LAYOUT_A
-#define LAYOUT_A LR
+#define LAYOUT_A Row
 #endif
 #ifndef LAYOUT_B
-#define LAYOUT_B LR
+#define LAYOUT_B Row
 #endif
 #ifndef LAYOUT_C
-#define LAYOUT_C LR
+#define LAYOUT_C Row
 #endif
 #ifndef STRATEGY
 #define STRATEGY 128, 128, 8, 32, 64, 4, 8

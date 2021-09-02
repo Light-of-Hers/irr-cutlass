@@ -28,7 +28,7 @@ def get_bin_path(dtype, layouts, strategy):
     if not os.path.exists(BIN_DIR):
         os.mkdir(BIN_DIR)
     path = os.path.join(
-        BIN_DIR, "irr-gemm-{}-{}{}{}-{}".format(dtype, *(int(l == "C") for l in layouts), '-'.join(str(x) for x in strategy)))
+        BIN_DIR, "irr-gemm-{}-{}{}{}-{}".format(dtype, *(int(l == "Col") for l in layouts), '-'.join(str(x) for x in strategy)))
     if not os.path.exists(path):
         build_bin(path, dtype, *layouts, strategy)
     return path
@@ -84,7 +84,7 @@ SHAPES = [
 
 def main():
     dtype = "float"
-    layouts = "RRR"
+    layouts = ("Row", "Row", "Row")
     for strategy in STRATEGIES:
         for shape in SHAPES:
             print(strategy, shape, time_irr_gemm(
