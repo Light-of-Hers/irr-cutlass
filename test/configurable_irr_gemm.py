@@ -47,6 +47,7 @@ def time_irr_gemm(dtype, layouts, strategy, shape):
 
 
 STRATEGIES = [
+    # BM, BN, BK, WM, WN, GM, GN
     (2, 64, 32, 2, 32, 2, 16),
     (2, 128, 32, 2, 64, 2, 16),
     (4, 128, 16, 4, 64, 4, 8),
@@ -78,7 +79,9 @@ STRATEGIES += [
 
 SHAPES = [
     # some shapes
+    # M, N, K
     (71, 56962, 70),
+    # ......
 ]
 
 
